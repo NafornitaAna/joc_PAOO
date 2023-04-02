@@ -2,16 +2,12 @@ package dev.codenmore.tilegame;
 import dev.codenmore.tilegame.display.Display;
 import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.gfx.GameCamera;
-import dev.codenmore.tilegame.gfx.ImageLoader;
-import dev.codenmore.tilegame.gfx.SpriteSheet;
 import dev.codenmore.tilegame.input.KeyManager;
 import dev.codenmore.tilegame.states.GameState;
 import dev.codenmore.tilegame.states.MenuState;
 import dev.codenmore.tilegame.states.State;
-
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 
 public class Game implements Runnable
 {
@@ -35,6 +31,9 @@ public class Game implements Runnable
     //Camera
     private GameCamera gameCamera;
 
+    //handler
+    private Handler handler;
+
     public Game(String title,Integer width,Integer height)
     {
         this.height=height;
@@ -47,11 +46,10 @@ public class Game implements Runnable
         display=new Display(title,width,height);
         display.getFrame().addKeyListener(keyManager);
         Assets.init();
-
-        gameCamera=new GameCamera(this,0f,0f);
-
-        gameState=new GameState(this);
-        menuState=new MenuState(this);
+        handler=new Handler(this);
+        gameCamera=new GameCamera(handler,0f,0f);
+        gameState=new GameState(handler);
+        menuState=new MenuState(handler);
         State.setState(gameState);
     }
     private void tick()

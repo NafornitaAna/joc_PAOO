@@ -1,28 +1,41 @@
 package dev.codenmore.tilegame.gfx;
-
-import dev.codenmore.tilegame.Game;
+import dev.codenmore.tilegame.Handler;
 import dev.codenmore.tilegame.entities.Entity;
+import dev.codenmore.tilegame.tiles.Tile;
 
 public class GameCamera
 {
-    private Game game;
+    private Handler handler;
     private Float xOffset,yOffset;
 
-    public GameCamera(Game game,Float xOffset, Float yOffset)
+    public GameCamera(Handler handler,Float xOffset, Float yOffset)
     {
-        this.game=game;
+        this.handler=handler;
         this.xOffset=xOffset;
         this.yOffset=yOffset;
     }
+    public void checkBlankSpace()
+    {
+        if(xOffset<0)
+            xOffset=0f;
+        else if(xOffset>handler.getWorld().getWidth()* Tile.TILEWIDTH-handler.getWidth())
+            xOffset=(float)(handler.getWorld().getWidth()*Tile.TILEWIDTH-handler.getWidth());
+        if(yOffset<0)
+            yOffset=0f;
+        else if(yOffset>handler.getWorld().getHeight()* Tile.TILEHEIGHT-handler.getHeight())
+            yOffset=(float)(handler.getWorld().getHeight()*Tile.TILEHEIGHT-handler.getHeight());
+    }
     public void centerOnEntity(Entity e)
     {
-        xOffset=e.getX()-game.getWidth()/2+e.getWidth()/2;
-        yOffset=e.getY()-game.getHeight()/2+e.getHeight()/2;
+        xOffset=e.getX()-handler.getWidth()/2+e.getWidth()/2;
+        yOffset=e.getY()-handler.getHeight()/2+e.getHeight()/2;
+        checkBlankSpace();
     }
     public void move(Float xAmt,Float yAmt)
     {
         xOffset+=xAmt;
         yOffset+=yAmt;
+        checkBlankSpace();
     }
     public Float getyOffset() {
         return yOffset;

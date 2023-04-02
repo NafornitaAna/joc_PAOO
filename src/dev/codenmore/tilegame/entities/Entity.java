@@ -1,22 +1,24 @@
 package dev.codenmore.tilegame.entities;
 
 import dev.codenmore.tilegame.Game;
+import dev.codenmore.tilegame.Handler;
 
 import java.awt.*;
 
 public abstract class Entity
 {
-    protected Game game;
+    protected Handler handler;
     protected Float x,y;
-
     protected Integer width,height;
-    public Entity(Game game,Float x, Float y, Integer width, Integer height)
+    protected Rectangle bounds;
+    public Entity(Handler handler,Float x, Float y, Integer width, Integer height)
     {
-        this.game=game;
+        this.handler=handler;
         this.x=x;
         this.y=y;
         this.height=height;
         this.width=width;
+        bounds=new Rectangle(0,0,width,height);
     }
     public abstract void tick();
     public abstract void render(Graphics g);
