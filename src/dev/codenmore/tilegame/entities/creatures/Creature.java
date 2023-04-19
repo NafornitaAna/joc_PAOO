@@ -7,18 +7,15 @@ import dev.codenmore.tilegame.tiles.Tile;
 
 public abstract class Creature extends Entity
 {
-    public static final Integer DEFAULT_HEALTH=10;
     public static final float DEFAULT_SPEED=3.0f;
     public static final Integer DEFAULT_CREATURE_WIDTH=128;
     public static final Integer DEFAULT_CREATURE_HEIGHT=128;
-    protected Integer health;
     protected float speed;
     protected float xMove,yMove;
 
     public Creature(Handler handler, Float x, Float y, Integer width, Integer height)
     {
         super(handler,x, y,width,height);
-        health=DEFAULT_HEALTH;
         speed=DEFAULT_SPEED;
         xMove=0;
         yMove=0;
@@ -26,8 +23,10 @@ public abstract class Creature extends Entity
 
     public void move()
     {
-        moveX();
-        moveY();
+        if(!checkEntityCollisions(xMove,0f))
+            moveX();
+        if(!checkEntityCollisions(0f,yMove))
+            moveY();
     }
 
     public void moveX()

@@ -3,6 +3,7 @@ import dev.codenmore.tilegame.display.Display;
 import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.gfx.GameCamera;
 import dev.codenmore.tilegame.input.KeyManager;
+import dev.codenmore.tilegame.input.MouseManager;
 import dev.codenmore.tilegame.states.GameState;
 import dev.codenmore.tilegame.states.MenuState;
 import dev.codenmore.tilegame.states.State;
@@ -22,11 +23,12 @@ public class Game implements Runnable
     private Graphics g;
 
     //states
-    private State gameState;
-    private State menuState;
+    public State gameState;
+    public State menuState;
 
     //input
     private KeyManager keyManager;
+    private MouseManager mouseManager;
 
     //Camera
     private GameCamera gameCamera;
@@ -40,17 +42,22 @@ public class Game implements Runnable
         this.width=width;
         this.title=title;
         keyManager=new KeyManager();
+        mouseManager=new MouseManager();
     }
     private void init()
     {
         display=new Display(title,width,height);
         display.getFrame().addKeyListener(keyManager);
+        display.getFrame().addMouseListener(mouseManager);
+        display.getFrame().addMouseMotionListener(mouseManager);
+        display.getCanvas().addMouseListener(mouseManager);
+        display.getCanvas().addMouseMotionListener(mouseManager);
         Assets.init();
         handler=new Handler(this);
         gameCamera=new GameCamera(handler,0f,0f);
         gameState=new GameState(handler);
         menuState=new MenuState(handler);
-        State.setState(gameState);
+        State.setState(menuState);
     }
     private void tick()
     {
@@ -120,15 +127,14 @@ public class Game implements Runnable
     {
         return keyManager;
     }
+    public MouseManager getMouseManager(){return mouseManager;}
     public GameCamera getGameCamera()
     {
         return gameCamera;
     }
-
     public Integer getHeight() {
         return height;
     }
-
     public Integer getWidth() {
         return width;
     }

@@ -8,6 +8,7 @@ public class Tile
     //static stuff
     public static Tile[]tiles=new Tile[256];
     public static Tile woodTile=new WoodTile(0);
+    public static Tile margine=new Margine(1);
 
     //class
     public static final int TILEWIDTH=765,TILEHEIGHT=490;
