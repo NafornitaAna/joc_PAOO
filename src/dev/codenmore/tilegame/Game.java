@@ -35,8 +35,16 @@ public class Game implements Runnable
 
     //handler
     private Handler handler;
+    private static Game instance = null;
 
-    public Game(String title,Integer width,Integer height)
+    public static Game NewGame(String title,Integer width,Integer height)
+    {
+        if(instance == null)
+            instance = new Game(title, width, height);
+        return instance;
+    }
+
+    private Game(String title,Integer width,Integer height)
     {
         this.height=height;
         this.width=width;
@@ -44,6 +52,7 @@ public class Game implements Runnable
         keyManager=new KeyManager();
         mouseManager=new MouseManager();
     }
+
     private void init()
     {
         display=new Display(title,width,height);

@@ -7,67 +7,65 @@ import dev.codenmore.tilegame.items.Item;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 public class Inventory
 {
     private Handler handler;
     private boolean active=false;
-    private ArrayList<Item> inventoryItems;
-    private ArrayList<Item> inventoryItems2;
-    private int invX=64,invY=42,invWidth=637,invHeight=406;
-    private int invListCenterX=invX+159,invListCenterY=invY+invHeight/2,
-                invListCenterX2=invX+477,invListCenterY2=invY+invHeight/2;
+    private Item inventoryItems = null;
+    private Item inventoryItems2 = null;
+    private final int invX=64,invY=42,invWidth=637,invHeight=406;
+    private int invListCenterX=invX+7,invListCenterY=invY+7,
+                invListCenterX2=invX+630,invListCenterY2=invY+7;
     public Inventory(Handler handler)
     {
         this.handler=handler;
-        inventoryItems=new ArrayList<Item>();
-        inventoryItems2=new ArrayList<Item>();
     }
     public void tick()
     {
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_E))
             active=!active;
-        if(!active)
-            return;
     }
     public void render(Graphics g)
     {
         if(!active)
             return;
-        g.drawImage(Assets.inventoryScreen,invX,invY,invWidth,invHeight,null);
-        int len=inventoryItems.size();
-        int len2=inventoryItems2.size();
-        if(len==0||len2==0)
-            return;
-        Text.drawString(g,inventoryItems.get(0).getName(),invListCenterX,invListCenterY,true,Color.white,Assets.font28);
-        Text.drawString(g,inventoryItems2.get(0).getName(),invListCenterX2,invListCenterY2,true,Color.white,Assets.font28);
+        //g.drawImage(Assets.inventoryScreen,invX,invY,invWidth,invHeight,null);
+
+        if(inventoryItems != null)
+        {
+            System.out.println("P1");
+            Text.drawString(g,inventoryItems.getName()+" "+inventoryItems.getCount(),invListCenterX,invListCenterY,true,Color.WHITE,Assets.font28);
+        }
+        if(inventoryItems2 != null)
+        {
+            System.out.println("P2");
+            Text.drawString(g,inventoryItems2.getName()+" "+inventoryItems2.getCount(),invListCenterX2,invListCenterY2,true,Color.WHITE,Assets.font28);
+        }
     }
 
     //inventory
     public void addItem(Item item)
     {
-        for(Item i:inventoryItems)
+        if(this.inventoryItems == null)
         {
-            if(i.getId()==item.getId())
-            {
-                i.setCount(i.getCount()+item.getCount());
-                return;
-            }
+            inventoryItems = new Item(item);
         }
-        inventoryItems.add(item);
+        else
+        {
+            inventoryItems.setCount(this.inventoryItems.getCount()+1);
+        }
     }
     public void addItem2(Item item)
     {
-        for(Item i:inventoryItems2)
+        if(this.inventoryItems2 == null)
         {
-            if(i.getId()==item.getId())
-            {
-                i.setCount(i.getCount()+item.getCount());
-                return;
-            }
+            inventoryItems2 = new Item(item);
         }
-        inventoryItems2.add(item);
+        else
+        {
+            inventoryItems2.setCount(this.inventoryItems2.getCount()+1);
+        }
     }
 
     //getters setters

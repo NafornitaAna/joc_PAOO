@@ -32,6 +32,16 @@ public class Item
 
         items[id]=this;
     }
+
+    public Item(Item item)
+    {
+        this.texture = item.getTexture();
+        this.name = item.getName();
+        this.id = item.getId();
+        this.count = 1;
+        this.bounds=new Rectangle(x,y,ITEMWIDTH,ITEMHEIGHT);
+        items[id]=this;
+    }
     public void tick()
     {
         if(handler.getWorld().getEntityManager().getPlayer().getCollisionBounds(0f,0f).intersects(bounds))
