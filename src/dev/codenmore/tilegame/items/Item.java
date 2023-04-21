@@ -34,12 +34,15 @@ public class Item
     }
     public void tick()
     {
-        if(handler.getWorld().getEntityManager().getPlayer().getCollisionBounds(0f,0f).intersects(bounds)
-        ||handler.getWorld().getEntityManager().getPlayer2().getCollisionBounds(0f,0f).intersects(bounds))
+        if(handler.getWorld().getEntityManager().getPlayer().getCollisionBounds(0f,0f).intersects(bounds))
         {
             pickedUp=true;
             handler.getWorld().getEntityManager().getPlayer().getInventory().addItem(this);
-            handler.getWorld().getEntityManager().getPlayer2().getInventory().addItem(this);
+        }
+        if(handler.getWorld().getEntityManager().getPlayer2().getCollisionBounds(0f,0f).intersects(bounds))
+        {
+            pickedUp=true;
+            handler.getWorld().getEntityManager().getPlayer2().getInventory().addItem2(this);
         }
     }
     public void render(Graphics g)
@@ -51,6 +54,14 @@ public class Item
     public void render(Graphics g, int x,int y)
     {
         g.drawImage(texture,x+50,y,ITEMWIDTH,ITEMHEIGHT,null);
+    }
+
+    public Item createNew(int count)
+    {
+        Item i=new Item(texture,name,id);
+        i.setPickedUp(true);
+        i.setCount(count);
+        return i;
     }
     public Item createNew(int x,int y)
     {
@@ -121,6 +132,10 @@ public class Item
 
     public boolean isPickedUp() {
         return pickedUp;
+    }
+
+    public void setPickedUp(boolean pickedUp) {
+        this.pickedUp = pickedUp;
     }
 }
 

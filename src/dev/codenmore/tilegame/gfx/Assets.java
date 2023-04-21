@@ -1,5 +1,6 @@
 package dev.codenmore.tilegame.gfx;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Assets
@@ -9,8 +10,12 @@ public class Assets
             ceasca,briosa1,briosa2,cartiJoc,pahar,lingura,xp;
     public static BufferedImage[] pisicaDown,pisicaUp,pisicaLeft,pisicaRight,pisicaDown2,pisicaUp2,pisicaLeft2,pisicaRight2;
     public static BufferedImage[] btn_start;
+    public static BufferedImage inventoryScreen;
+    public static Font font28;
     public static void init()
     {
+        font28=FontLoader.loadFont("res/fonts/font.ttf",28);
+
         SpriteSheet sheetPisici=new SpriteSheet(ImageLoader.loadImage("/textures/pisici.png"));
         SpriteSheet sheetLemn=new SpriteSheet(ImageLoader.loadImage("/textures/wood(1).jpg"));
         SpriteSheet sheetSoareci=new SpriteSheet(ImageLoader.loadImage("/textures/soareci.png"));
@@ -30,6 +35,8 @@ public class Assets
         btn_start[1]=sheetBtnH.crop(0,0,264,97);
 
         xp=sheetXp.crop(0,0,190,191);
+
+        inventoryScreen=ImageLoader.loadImage("/textures/black.jpg");
 
         pisicaDown=new BufferedImage[3];
         pisicaDown[0]=sheetPisici.crop(width*6,0,width,height);

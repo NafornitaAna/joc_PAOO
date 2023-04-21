@@ -130,9 +130,12 @@ public class Player extends Creature
 //        g.fillRect((int)(x+bounds.x-handler.getGameCamera().getxOffset()),
 //                   (int)(y+bounds.y-handler.getGameCamera().getyOffset()),
 //                bounds.width, bounds.height);
-        inventory.render(g);
     }
 
+    public void postRender(Graphics g)
+    {
+        inventory.render(g);
+    }
     public Inventory getInventory() {
         return inventory;
     }
