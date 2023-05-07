@@ -5,6 +5,7 @@ import dev.codenmore.tilegame.gfx.GameCamera;
 import dev.codenmore.tilegame.input.KeyManager;
 import dev.codenmore.tilegame.input.MouseManager;
 import dev.codenmore.tilegame.states.GameState;
+import dev.codenmore.tilegame.states.GameState2;
 import dev.codenmore.tilegame.states.MenuState;
 import dev.codenmore.tilegame.states.State;
 import java.awt.*;
@@ -23,7 +24,7 @@ public class Game implements Runnable
     private Graphics g;
 
     //states
-    public State gameState;
+    public State gameState,gameState2;
     public State menuState;
 
     //input
@@ -65,6 +66,7 @@ public class Game implements Runnable
         handler=new Handler(this);
         gameCamera=new GameCamera(handler,0f,0f);
         gameState=new GameState(handler);
+        //gameState2=new GameState2(handler);
         menuState=new MenuState(handler);
         State.setState(menuState);
     }

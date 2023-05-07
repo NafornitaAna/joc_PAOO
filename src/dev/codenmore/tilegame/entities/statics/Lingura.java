@@ -6,7 +6,7 @@ import dev.codenmore.tilegame.items.Item;
 
 import java.awt.*;
 
-public class Lingura extends StaticEntity
+public class Lingura extends StaticEntity implements BrakebleObject
 {
 
     public Lingura(Handler handler, float x, float y)

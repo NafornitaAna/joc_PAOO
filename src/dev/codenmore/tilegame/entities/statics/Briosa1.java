@@ -6,8 +6,7 @@ import dev.codenmore.tilegame.items.Item;
 
 import java.awt.*;
 
-public class Briosa1 extends StaticEntity
-{
+public class Briosa1 extends StaticEntity implements BrakebleObject {
 
     public Briosa1(Handler handler, float x, float y)
     {

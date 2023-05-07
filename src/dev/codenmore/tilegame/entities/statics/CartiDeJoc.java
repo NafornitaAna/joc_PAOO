@@ -6,7 +6,7 @@ import dev.codenmore.tilegame.items.Item;
 
 import java.awt.*;
 
-public class CartiDeJoc extends StaticEntity
+public class CartiDeJoc extends StaticEntity implements BrakebleObject
 {
 
     public CartiDeJoc(Handler handler, float x, float y)

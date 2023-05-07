@@ -6,7 +6,7 @@ import dev.codenmore.tilegame.items.Item;
 
 import java.awt.*;
 
-public class Ceasca extends StaticEntity
+public class Ceasca extends StaticEntity implements BrakebleObject
 {
 
     public Ceasca(Handler handler, float x, float y)

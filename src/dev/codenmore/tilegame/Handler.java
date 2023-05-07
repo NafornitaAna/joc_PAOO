@@ -3,12 +3,12 @@ package dev.codenmore.tilegame;
 import dev.codenmore.tilegame.gfx.GameCamera;
 import dev.codenmore.tilegame.input.KeyManager;
 import dev.codenmore.tilegame.input.MouseManager;
-import dev.codenmore.tilegame.worlds.World;
+import dev.codenmore.tilegame.worlds.Worlds;
 
 public class Handler
 {
     private Game game;
-    private World world;
+    private Worlds world;
 
     public Handler(Game game)
     {
@@ -31,11 +31,11 @@ public class Handler
     {
         return game.getHeight();
     }
-    public World getWorld() {
+    public Worlds getWorld() {
         return world;
     }
 
-    public void setWorld(World world) {
+    public void setWorld(Worlds world) {
         this.world = world;
     }
 

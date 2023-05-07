@@ -6,9 +6,10 @@ import java.awt.image.BufferedImage;
 public class Assets
 {
     private static final Integer width=48,height=48;
-    public static BufferedImage soareci,lemn,margine,
+    public static BufferedImage lemn,margine,
             ceasca,briosa1,briosa2,cartiJoc,pahar,lingura,xp;
-    public static BufferedImage[] pisicaDown,pisicaUp,pisicaLeft,pisicaRight,pisicaDown2,pisicaUp2,pisicaLeft2,pisicaRight2;
+    public static BufferedImage[] pisicaDown,pisicaUp,pisicaLeft,pisicaRight,pisicaDown2,pisicaUp2,pisicaLeft2,pisicaRight2,
+            soareceDown,soareceUp,soareceLeft,soareceRight;
     public static BufferedImage[] btn_start;
     public static BufferedImage inventoryScreen;
     public static Font font28;
@@ -37,6 +38,23 @@ public class Assets
         xp=sheetXp.crop(0,0,190,191);
 
         inventoryScreen=ImageLoader.loadImage("/textures/black.jpg");
+
+        soareceDown=new BufferedImage[3];
+        soareceDown[0]=sheetSoareci.crop(width*6,height*4,width,height);
+        soareceDown[1]=sheetSoareci.crop(width*7,height*4,width,height);
+        soareceDown[2]=sheetSoareci.crop(width*8,height*4,width,height);
+        soareceLeft=new BufferedImage[3];
+        soareceLeft[0]=sheetSoareci.crop(width*6,height*5,width,height);
+        soareceLeft[1]=sheetSoareci.crop(width*7,height*5,width,height);
+        soareceLeft[2]=sheetSoareci.crop(width*8,height*5,width,height);
+        soareceRight=new BufferedImage[3];
+        soareceRight[0]=sheetSoareci.crop(width*6,height*6,width,height);
+        soareceRight[1]=sheetSoareci.crop(width*7,height*6,width,height);
+        soareceRight[2]=sheetSoareci.crop(width*8,height*6,width,height);
+        soareceUp=new BufferedImage[3];
+        soareceUp[0]=sheetSoareci.crop(width*6,height*7,width,height);
+        soareceUp[1]=sheetSoareci.crop(width*7,height*7,width,height);
+        soareceUp[2]=sheetSoareci.crop(width*8,height*7,width,height);
 
         pisicaDown=new BufferedImage[3];
         pisicaDown[0]=sheetPisici.crop(width*6,0,width,height);

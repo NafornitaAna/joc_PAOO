@@ -10,9 +10,9 @@ import dev.codenmore.tilegame.tiles.Tile;
 import dev.codenmore.tilegame.utils.Utils;
 import java.awt.*;
 
-public class World extends Worlds
+public class World2 extends Worlds
 {
-    public World(Handler handler, String path)
+    public World2(Handler handler, String path)
     {
         this.handler =handler;
         entityManager=new EntityManager(handler,new Player(handler,100f,100f),
@@ -22,6 +22,8 @@ public class World extends Worlds
         entityManager.addEntity(new Briosa1(handler,250,250));
         entityManager.addEntity(new CartiDeJoc(handler,400,10));
         entityManager.addEntity(new Pahar(handler,20,400));
+        entityManager.addEntity(new NPC_Soricel(handler,0f,100f));
+        entityManager.addEntity(new NPC_Soricel(handler,600f,300f));
 
         loadWorld(path);
 

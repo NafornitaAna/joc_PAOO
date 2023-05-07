@@ -6,7 +6,7 @@ import dev.codenmore.tilegame.items.Item;
 
 import java.awt.*;
 
-public class Pahar extends StaticEntity
+public class Pahar extends StaticEntity implements BrakebleObject
 {
 
     public Pahar(Handler handler, float x, float y)
