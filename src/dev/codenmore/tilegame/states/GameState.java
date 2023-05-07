@@ -18,7 +18,6 @@ public class GameState extends State
     {
         super(handler);
         world=new World(handler,"res/worlds/world1.txt");
-        handler.setWorld(world);
     }
     @Override
     public void tick()
@@ -37,6 +36,7 @@ public class GameState extends State
         {
 //            handler.setWorld(new World2(handler,"res/worlds/world2.txt"));
             State.setState(handler.getGame().gameState2);
+            handler.getGame().gameState2.loadWorld();
         }
 
     }
@@ -45,6 +45,11 @@ public class GameState extends State
     public void render(Graphics g)
     {
         world.render(g);
+    }
+
+    @Override
+    public void loadWorld() {
+        handler.setWorld(world);
     }
 }
 

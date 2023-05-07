@@ -38,4 +38,9 @@ public class MenuState extends State
     {
         uiManager.render(g);
     }
+
+    @Override
+    public void loadWorld() {
+
+    }
 }

@@ -66,6 +66,7 @@ public class Game implements Runnable
         handler=new Handler(this);
         gameCamera=new GameCamera(handler,0f,0f);
         gameState=new GameState(handler);
+        gameState.loadWorld();
         gameState2=new GameState2(handler);
         menuState=new MenuState(handler);
         State.setState(menuState);
