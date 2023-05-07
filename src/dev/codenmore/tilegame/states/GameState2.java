@@ -15,7 +15,6 @@ public class GameState2 extends State
     {
         super(handler);
         world=new World2(handler,"res/worlds/world2.txt");
-        handler.setWorld(world);
     }
     @Override
     public void tick()

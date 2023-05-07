@@ -36,7 +36,7 @@ public class GameState extends State
         if(!ok)
         {
 //            handler.setWorld(new World2(handler,"res/worlds/world2.txt"));
-//            State.setState(handler.getGame().gameState2);
+            State.setState(handler.getGame().gameState2);
         }
 
     }
