@@ -11,10 +11,10 @@ import java.awt.image.BufferedImage;
 public class Player extends Creature
 {
     //animations
-    private Animation animDown,animUp,animLeft,animRight;
+    private final Animation animDown,animUp,animLeft,animRight;
 
     //attack timer
-    private long lastAttackTimer,attackCooldown=500,attackTimer=attackCooldown;
+    private long lastAttackTimer,attackCooldown=500,attackTimer=attackCooldown,stanTimer=10000,lastStanTimer,stanCooldown=10000;
 
     //inventory
     private Inventory inventory;
@@ -37,6 +37,8 @@ public class Player extends Creature
 
     public void die()
     {
+        this.x=0f;
+        this.y=0f;
         System.out.println("ups");
     }
     @Override
@@ -57,18 +59,18 @@ public class Player extends Creature
         inventory.tick();
     }
 
-    private void checkAttacks()
-    {
-        attackTimer+=System.currentTimeMillis()-lastAttackTimer;
-        lastAttackTimer=System.currentTimeMillis();
-        if(attackTimer<attackCooldown)
+    private void checkAttacks() {
+
+        attackTimer += System.currentTimeMillis() - lastAttackTimer;
+        lastAttackTimer = System.currentTimeMillis();
+        if (attackTimer < attackCooldown)
             return;
 
-        Rectangle cb=getCollisionBounds(0,0);
-        Rectangle ar=new Rectangle();
-        int arSize=100;
-        ar.width=arSize;
-        ar.height=arSize;
+        Rectangle cb = getCollisionBounds(0, 0);
+        Rectangle ar = new Rectangle();
+        int arSize = 100;
+        ar.width = arSize;
+        ar.height = arSize;
 
         if(handler.getKeyManager().attack1 && handler.getKeyManager().up)
         {

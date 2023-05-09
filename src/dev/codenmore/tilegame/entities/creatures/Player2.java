@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
 public class Player2 extends Creature
 {
     //animations
-    private Animation animDown,animUp,animLeft,animRight;
+    private final Animation animDown,animUp,animLeft,animRight;
     private long lastAttackTimer,attackCooldown=500,attackTimer=attackCooldown;
     private Inventory inventory;
     public Player2(Handler handler, Float x, Float y)
@@ -103,6 +103,8 @@ public class Player2 extends Creature
     @Override
     public void die()
     {
+        this.x=0f;
+        this.y=0f;
         System.out.println("ups");
     }
 

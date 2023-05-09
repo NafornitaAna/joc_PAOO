@@ -2,6 +2,7 @@ package dev.codenmore.tilegame.entities;
 
 import dev.codenmore.tilegame.Game;
 import dev.codenmore.tilegame.Handler;
+import dev.codenmore.tilegame.entities.statics.BrakebleObject;
 
 import java.awt.*;
 
@@ -32,7 +33,8 @@ public abstract class Entity
         health-=amt;
         if(health<=0)
         {
-            active=false;
+            if(this instanceof BrakebleObject)
+                active=false;
             die();
         }
     }
