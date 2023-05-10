@@ -7,7 +7,7 @@ public class Assets
 {
     private static final Integer width=48,height=48;
     public static BufferedImage lemn,margine,
-            ceasca,briosa1,briosa2,cartiJoc,pahar,lingura,xp;
+            ceasca,briosa1,briosa2,cartiJoc,pahar,lingura,tort,xp;
     public static BufferedImage[] pisicaDown,pisicaUp,pisicaLeft,pisicaRight,pisicaDown2,pisicaUp2,pisicaLeft2,pisicaRight2,
             soareceDown,soareceUp,soareceLeft,soareceRight;
     public static BufferedImage[] btn_start;
@@ -28,6 +28,7 @@ public class Assets
         SpriteSheet sheetCartiDeJoc=new SpriteSheet(ImageLoader.loadImage("/textures/playing-cards.png"));
         SpriteSheet sheetPahar=new SpriteSheet(ImageLoader.loadImage("/textures/pahar.png"));
         SpriteSheet sheetLingura=new SpriteSheet(ImageLoader.loadImage("/textures/lingura.png"));
+        SpriteSheet sheetTort=new SpriteSheet(ImageLoader.loadImage("/textures/tort.png"));
         SpriteSheet sheetMargine=new SpriteSheet(ImageLoader.loadImage("/textures/lemn.jpg"));
         SpriteSheet sheetXp=new SpriteSheet(ImageLoader.loadImage("/textures/xp.png"));
 
@@ -91,6 +92,7 @@ public class Assets
 
         lemn=sheetLemn.crop(0,0,1531,980);
 
+        tort = sheetTort.crop(0,0,66,66);
         ceasca = sheetCeasca.crop(0,0,64,64);
         briosa1 = sheetBriosa1.crop(0,0,500,500);
         briosa2 = sheetBriosa2.crop(0,0,221,304);
