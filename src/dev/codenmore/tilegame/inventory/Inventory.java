@@ -12,8 +12,8 @@ public class Inventory
 {
     private Handler handler;
     private boolean active=false;
-    private Item inventoryItems = null;
-    private Item inventoryItems2 = null;
+    private Item inventoryItems = null; //new Item(Assets.xp,"xp",0);
+    private Item inventoryItems2 = null; //new Item(Assets.xp,"xp",0);
     private final int invX=64,invY=42,invWidth=637,invHeight=406;
     private int invListCenterX=invX+7,invListCenterY=invY+7,
                 invListCenterX2=invX+630,invListCenterY2=invY+7;
@@ -34,12 +34,10 @@ public class Inventory
 
         if(inventoryItems != null)
         {
-            System.out.println("P1");
             Text.drawString(g,inventoryItems.getName()+" "+inventoryItems.getCount(),invListCenterX,invListCenterY,true,Color.WHITE,Assets.font28);
         }
         if(inventoryItems2 != null)
         {
-            System.out.println("P2");
             Text.drawString(g,inventoryItems2.getName()+" "+inventoryItems2.getCount(),invListCenterX2,invListCenterY2,true,Color.WHITE,Assets.font28);
         }
     }
@@ -92,4 +90,21 @@ public class Inventory
     public void setInventoryItems2(Item inventoryItems2) {
         this.inventoryItems2 = inventoryItems2;
     }
+
+    public int getCount(){
+        if(inventoryItems == null)
+        {
+            return 0;
+        }
+        return inventoryItems.getCount();
+    }
+
+    public int getCount2(){
+        if(inventoryItems2 == null)
+        {
+            return 0;
+        }
+        return inventoryItems2.getCount();
+    }
+
 }

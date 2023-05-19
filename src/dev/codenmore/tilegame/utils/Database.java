@@ -39,7 +39,7 @@ public class Database
         }
     }
 
-    public void insert(Handler handler, Inventory inventory)
+    public void insert(Handler handler, Player player, Player2 player2)
     {
         String sql = "INSERT INTO catOClock(level, scorPlayer1, scorPlayer2, harta) VALUES(?,?,?,?)";
         int lvl=0;
@@ -66,8 +66,8 @@ public class Database
                 pstmt.setDouble(1, 3);
                 lvl=3;
             }
-            pstmt.setDouble(2, inventory.getInventoryItems().getCount());
-            pstmt.setDouble(3, inventory.getInventoryItems().getCount());
+            pstmt.setDouble(2, player.getInventory().getInventoryItems().getCount());
+            pstmt.setDouble(3, player2.getInventory().getInventoryItems2().getCount());
             pstmt.setString(4, "res/worlds/world" + lvl + ".txt");
             pstmt.executeUpdate();
         } catch (SQLException e) {

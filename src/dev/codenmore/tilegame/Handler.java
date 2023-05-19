@@ -1,14 +1,16 @@
 package dev.codenmore.tilegame;
+import dev.codenmore.tilegame.entities.creatures.Player;
+import dev.codenmore.tilegame.entities.creatures.Player2;
 import dev.codenmore.tilegame.gfx.GameCamera;
 import dev.codenmore.tilegame.input.KeyManager;
 import dev.codenmore.tilegame.input.MouseManager;
+import dev.codenmore.tilegame.inventory.Inventory;
 import dev.codenmore.tilegame.worlds.Worlds;
 
 public class Handler
 {
     private Game game;
     private Worlds world;
-
     public Handler(Game game)
     {
         this.game=game;
@@ -33,17 +35,13 @@ public class Handler
     public Worlds getWorld() {
         return world;
     }
-
     public void setWorld(Worlds world) {
         this.world = world;
     }
-
     public Game getGame() {
         return game;
     }
-
     public void setGame(Game game) {
         this.game = game;
     }
-
 }

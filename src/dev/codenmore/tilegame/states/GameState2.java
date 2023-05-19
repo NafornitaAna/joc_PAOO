@@ -4,6 +4,8 @@ import dev.codenmore.tilegame.entities.creatures.Player;
 import dev.codenmore.tilegame.entities.creatures.Player2;
 import dev.codenmore.tilegame.entities.statics.BrakebleObject;
 import dev.codenmore.tilegame.entities.statics.Ceasca;
+import dev.codenmore.tilegame.gfx.Assets;
+import dev.codenmore.tilegame.items.Item;
 import dev.codenmore.tilegame.worlds.Worlds;
 import dev.codenmore.tilegame.worlds.World2;
 
@@ -36,9 +38,22 @@ public class GameState2 extends State
         }
         if(!ok)
         {
-//            handler.setWorld(new World2(handler,"res/worlds/world2.txt"));
+            int playerVech1 = world.getEntityManager().getPlayer().getInventory().getCount();
+            int playerVech2 = world.getEntityManager().getPlayer2().getInventory().getCount2();
+
             State.setState(handler.getGame().gameState3);
             handler.getGame().gameState3.loadWorld();
+
+            if(playerVech1!=0)
+            {
+                this.handler.getWorld().getEntityManager().getPlayer().getInventory().setInventoryItems(new Item(Assets.xp,"xp",0));
+                this.handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems().setCount(playerVech1);
+            }
+            if(playerVech2!=0)
+            {
+                this.handler.getWorld().getEntityManager().getPlayer2().getInventory().setInventoryItems2(new Item(Assets.xp,"xp",0));
+                this.handler.getWorld().getEntityManager().getPlayer2().getInventory().getInventoryItems2().setCount(playerVech2);
+            }
         }
     }
 

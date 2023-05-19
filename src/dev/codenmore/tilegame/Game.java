@@ -12,8 +12,6 @@ import java.awt.image.BufferStrategy;
 public class Game implements Runnable
 {
     private Display display;
-
-
     private Integer width,height;
     public String title;
     private Boolean running=false;

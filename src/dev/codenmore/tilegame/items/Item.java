@@ -26,7 +26,7 @@ public class Item
         this.texture=texture;
         this.name=name;
         this.id = id;
-        count=1;
+        count=0;
 
         bounds=new Rectangle(x,y,ITEMWIDTH,ITEMHEIGHT);
 
