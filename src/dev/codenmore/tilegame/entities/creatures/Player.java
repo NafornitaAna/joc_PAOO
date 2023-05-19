@@ -14,7 +14,7 @@ public class Player extends Creature
     private final Animation animDown,animUp,animLeft,animRight;
 
     //attack timer
-    private long lastAttackTimer,attackCooldown=500,attackTimer=attackCooldown,stanTimer=10000,lastStanTimer,stanCooldown=10000;
+    private long lastAttackTimer,attackCooldown=500,attackTimer=attackCooldown;
 
     //inventory
     private Inventory inventory;

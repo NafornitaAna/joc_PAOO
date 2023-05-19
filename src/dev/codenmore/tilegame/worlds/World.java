@@ -19,6 +19,7 @@ public class World extends Worlds
                 new Player2(handler,100f,100f));
         itemManager=new ItemManager(handler);
         entityManager.addEntity(new Ceasca(handler,400,300));
+        entityManager.addEntity(new Ceasca(handler,600,200));
         entityManager.addEntity(new Briosa1(handler,250,250));
         entityManager.addEntity(new CartiDeJoc(handler,400,10));
         entityManager.addEntity(new Pahar(handler,20,400));

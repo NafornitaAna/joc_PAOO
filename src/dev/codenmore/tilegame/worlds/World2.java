@@ -18,10 +18,12 @@ public class World2 extends Worlds
         entityManager=new EntityManager(handler,new Player(handler,100f,100f),
                 new Player2(handler,100f,100f));
         itemManager=new ItemManager(handler);
-        entityManager.addEntity(new Ceasca(handler,400,300));
-        entityManager.addEntity(new Briosa1(handler,250,250));
+        entityManager.addEntity(new Ceasca(handler,650,400));
+        entityManager.addEntity(new Ceasca(handler,350,200));
+        entityManager.addEntity(new Briosa1(handler,100,300));
         entityManager.addEntity(new CartiDeJoc(handler,400,10));
         entityManager.addEntity(new Pahar(handler,20,400));
+        entityManager.addEntity(new Lingura(handler,300,400));
         entityManager.addEntity(new NPC_Soricel(handler,0f,100f));
         entityManager.addEntity(new NPC_Soricel(handler,600f,300f));
 

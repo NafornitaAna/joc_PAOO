@@ -76,4 +76,20 @@ public class Inventory
     public void setHandler(Handler handler) {
         this.handler = handler;
     }
+
+    public Item getInventoryItems() {
+        return inventoryItems;
+    }
+
+    public void setInventoryItems(Item inventoryItems) {
+        this.inventoryItems = inventoryItems;
+    }
+
+    public Item getInventoryItems2() {
+        return inventoryItems2;
+    }
+
+    public void setInventoryItems2(Item inventoryItems2) {
+        this.inventoryItems2 = inventoryItems2;
+    }
 }

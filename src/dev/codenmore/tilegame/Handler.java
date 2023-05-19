@@ -1,5 +1,4 @@
 package dev.codenmore.tilegame;
-
 import dev.codenmore.tilegame.gfx.GameCamera;
 import dev.codenmore.tilegame.input.KeyManager;
 import dev.codenmore.tilegame.input.MouseManager;

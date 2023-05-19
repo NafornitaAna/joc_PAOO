@@ -31,7 +31,7 @@ public class Lingura extends StaticEntity implements BrakebleObject
     @Override
     public void render(Graphics g) {
         g.drawImage(Assets.lingura,Math.round(x-handler.getGameCamera().getxOffset()),
-                Math.round(y-handler.getGameCamera().getyOffset()),50,50,null);
+                Math.round(y-handler.getGameCamera().getyOffset()),25,50,null);
 //        g.setColor(Color.red);
 //        g.fillRect((int)(x+bounds.x-handler.getGameCamera().getxOffset()),
 //                (int)(y+bounds.y-handler.getGameCamera().getyOffset()),
