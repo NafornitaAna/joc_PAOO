@@ -9,7 +9,6 @@ import dev.codenmore.tilegame.worlds.Worlds;
 public class Handler
 {
     private Game game;
-    private Worlds world;
     public Handler(Game game)
     {
         this.game=game;
@@ -30,12 +29,6 @@ public class Handler
     public Integer getHeight()
     {
         return game.getHeight();
-    }
-    public Worlds getWorld() {
-        return world;
-    }
-    public void setWorld(Worlds world) {
-        this.world = world;
     }
     public Game getGame() {
         return game;

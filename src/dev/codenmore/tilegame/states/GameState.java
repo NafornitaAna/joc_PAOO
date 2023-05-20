@@ -8,13 +8,13 @@ import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.items.Item;
 import dev.codenmore.tilegame.worlds.World;
 import dev.codenmore.tilegame.worlds.World2;
+import dev.codenmore.tilegame.worlds.World3;
 import dev.codenmore.tilegame.worlds.Worlds;
 
 import java.awt.*;
 
 public class GameState extends State
 {
-    private Worlds world;
 
     public GameState(Handler handler)
     {
@@ -26,36 +26,47 @@ public class GameState extends State
     {
         world.tick();
 
-        var entities = world.getEntityManager().getEntities();
-        boolean ok = false;
-        for(int i=0;i<entities.size();i++)
-        {
-            if(entities.get(i) instanceof BrakebleObject){
-                ok = true;
-            }
-        }
-        if(!ok)
+        if(!this.enitiesExists())
         {
             int playerVech1 = world.getEntityManager().getPlayer().getInventory().getCount();
             int playerVech2 = world.getEntityManager().getPlayer2().getInventory().getCount2();
 
-            State.setState(handler.getGame().gameState2);
-            handler.getGame().gameState2.loadWorld();
+            if(this.world instanceof World)
+            {
+                this.world = new World2(handler, "res/worlds/world2.txt");
+            }
+            else if(this.world instanceof World2)
+            {
+                this.world = new World3(handler, "res/worlds/world3.txt");
+            }
+            else if (this.world instanceof World3)
+            {
+                System.out.println("GATA");
+            }
 
             if(playerVech1!=0)
             {
-                this.handler.getWorld().getEntityManager().getPlayer().getInventory().setInventoryItems(new Item(Assets.xp,"xp",0));
-                this.handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems().setCount(playerVech1);
+                this.handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().setInventoryItems(new Item(Assets.xp,"xp",0));
+                this.handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems().setCount(playerVech1);
             }
             if(playerVech2!=0)
             {
-                this.handler.getWorld().getEntityManager().getPlayer2().getInventory().setInventoryItems2(new Item(Assets.xp,"xp",0));
-                this.handler.getWorld().getEntityManager().getPlayer2().getInventory().getInventoryItems2().setCount(playerVech2);
+                this.handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().setInventoryItems2(new Item(Assets.xp,"xp",0));
+                this.handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getInventoryItems2().setCount(playerVech2);
             }
         }
-
     }
 
+    public boolean enitiesExists() {
+        var entities = world.getEntityManager().getEntities();
+        for(int i=0;i<entities.size();i++)
+        {
+            if(entities.get(i) instanceof BrakebleObject){
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public void render(Graphics g)
@@ -65,7 +76,7 @@ public class GameState extends State
 
     @Override
     public void loadWorld() {
-        handler.setWorld(world);
+        handler.getGame().gameState.setWorld(world);
     }
 }
 

@@ -21,7 +21,7 @@ public class Ceasca extends StaticEntity implements BrakebleObject
     @Override
     public void die()
     {
-        handler.getWorld().getItemManager().addItem(Item.xpItem.createNew(Math.round(x),Math.round(y)));
+        handler.getGame().gameState.getWorld().getItemManager().addItem(Item.xpItem.createNew(Math.round(x),Math.round(y)));
     }
     @Override
     public void tick() {
@@ -32,9 +32,5 @@ public class Ceasca extends StaticEntity implements BrakebleObject
     public void render(Graphics g) {
         g.drawImage(Assets.ceasca,Math.round(x-handler.getGameCamera().getxOffset()),
                 Math.round(y-handler.getGameCamera().getyOffset()),60,60,null);
-//        g.setColor(Color.red);
-//        g.fillRect((int)(x+bounds.x-handler.getGameCamera().getxOffset()),
-//                (int)(y+bounds.y-handler.getGameCamera().getyOffset()),
-//                bounds.width, bounds.height);
     }
 }

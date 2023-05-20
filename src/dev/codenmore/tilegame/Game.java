@@ -22,7 +22,7 @@ public class Game implements Runnable
     private Graphics g;
 
     //states
-    public State gameState,gameState2,gameState3;
+    public State gameState;
     public State menuState;
 
     //db
@@ -78,8 +78,6 @@ public class Game implements Runnable
         gameCamera=new GameCamera(handler,0f,0f);
         gameState=new GameState(handler);
         gameState.loadWorld();
-        gameState2=new GameState2(handler);
-        gameState3=new GameState3(handler);
         menuState=new MenuState(handler);
         State.setState(menuState);
     }
@@ -189,6 +187,7 @@ public class Game implements Runnable
     public void verifEscapeKey()
     {
         if(handler.getKeyManager().esc){
+            handler.getGame().getDatabase().insert(handler);
             State.setState(new MenuState(handler));
         }
     }

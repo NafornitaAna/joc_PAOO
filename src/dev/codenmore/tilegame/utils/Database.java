@@ -6,6 +6,9 @@ import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.items.Item;
 import dev.codenmore.tilegame.states.GameState;
 import dev.codenmore.tilegame.states.State;
+import dev.codenmore.tilegame.worlds.World;
+import dev.codenmore.tilegame.worlds.World2;
+import dev.codenmore.tilegame.worlds.World3;
 
 import java.sql.*;
 
@@ -39,7 +42,7 @@ public class Database
         }
     }
 
-    public void insert(Handler handler, Player player, Player2 player2)
+    public void insert(Handler handler)
     {
         String sql = "INSERT INTO catOClock(level, scorPlayer1, scorPlayer2, harta) VALUES(?,?,?,?)";
         int lvl=0;
@@ -51,23 +54,23 @@ public class Database
                 pstmt.setDouble(1, 0);
                 lvl=0;
             }
-            if(State.getState()== handler.getGame().gameState)
+            if(handler.getGame().gameState.getWorld() instanceof World)
             {
                 pstmt.setDouble(1, 1);
                 lvl=1;
             }
-            if(State.getState()== handler.getGame().gameState2)
+            if(handler.getGame().gameState.getWorld() instanceof World2)
             {
                 pstmt.setDouble(1, 2);
                 lvl=2;
             }
-            if(State.getState()== handler.getGame().gameState3)
+            if(handler.getGame().gameState.getWorld() instanceof World3)
             {
                 pstmt.setDouble(1, 3);
                 lvl=3;
             }
-            pstmt.setDouble(2, player.getInventory().getInventoryItems().getCount());
-            pstmt.setDouble(3, player2.getInventory().getInventoryItems2().getCount());
+            pstmt.setDouble(2, handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().getCount());
+            pstmt.setDouble(3, handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getCount2());
             pstmt.setString(4, "res/worlds/world" + lvl + ".txt");
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -149,24 +152,24 @@ public class Database
             int level = Integer.parseInt(date[0]);
             if(level==0||level==1)
             {
-                State.setState(handler.getGame().gameState);
+                handler.getGame().gameState.setWorld(new World(handler, "res/worlds/world1.txt"));
             }
             if(level==2)
             {
-                State.setState(handler.getGame().gameState2);
+                handler.getGame().gameState.setWorld(new World2(handler, "res/worlds/world2.txt"));
             }
             if(level==3)
             {
-                State.setState(handler.getGame().gameState3);
+                handler.getGame().gameState.setWorld(new World3(handler, "res/worlds/world3.txt"));
             }
 
             int scorPlayer1 = Integer.parseInt(date[1]);
-            handler.getWorld().getEntityManager().getPlayer().getInventory().setInventoryItems(new Item(Assets.xp,"xp",0));
-            handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems().setCount(scorPlayer1);
+            handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().setInventoryItems(new Item(Assets.xp,"xp",0));
+            handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems().setCount(scorPlayer1);
 
             int scorPlayer2 = Integer.parseInt(date[2]);
-            handler.getWorld().getEntityManager().getPlayer2().getInventory().setInventoryItems2(new Item(Assets.xp,"xp",0));
-            handler.getWorld().getEntityManager().getPlayer2().getInventory().getInventoryItems2().setCount(scorPlayer2);
+            handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().setInventoryItems2(new Item(Assets.xp,"xp",0));
+            handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getInventoryItems2().setCount(scorPlayer2);
         }
 
     }

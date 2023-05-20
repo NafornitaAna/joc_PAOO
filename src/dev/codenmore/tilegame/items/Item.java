@@ -44,15 +44,15 @@ public class Item
     }
     public void tick()
     {
-        if(handler.getWorld().getEntityManager().getPlayer().getCollisionBounds(0f,0f).intersects(bounds))
+        if(handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getCollisionBounds(0f,0f).intersects(bounds))
         {
             pickedUp=true;
-            handler.getWorld().getEntityManager().getPlayer().getInventory().addItem(this);
+            handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().addItem(this);
         }
-        if(handler.getWorld().getEntityManager().getPlayer2().getCollisionBounds(0f,0f).intersects(bounds))
+        if(handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getCollisionBounds(0f,0f).intersects(bounds))
         {
             pickedUp=true;
-            handler.getWorld().getEntityManager().getPlayer2().getInventory().addItem2(this);
+            handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().addItem2(this);
         }
     }
     public void render(Graphics g)

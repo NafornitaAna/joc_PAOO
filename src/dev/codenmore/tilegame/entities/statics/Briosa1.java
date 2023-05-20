@@ -20,7 +20,7 @@ public class Briosa1 extends StaticEntity implements BrakebleObject {
     @Override
     public void die()
     {
-        handler.getWorld().getItemManager().addItem(Item.xpItem.createNew(Math.round(x),Math.round(y)));
+        handler.getGame().gameState.getWorld().getItemManager().addItem(Item.xpItem.createNew(Math.round(x),Math.round(y)));
     }
 
     @Override

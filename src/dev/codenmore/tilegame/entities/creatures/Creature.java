@@ -95,7 +95,7 @@ public abstract class Creature extends Entity
 
     protected boolean collisionWithTile(Integer x,Integer y)
     {
-        return handler.getWorld().getTile(x,y).isSolid();
+        return handler.getGame().gameState.getWorld().getTile(x,y).isSolid();
     }
     //getters setters
     public float getSpeed() {

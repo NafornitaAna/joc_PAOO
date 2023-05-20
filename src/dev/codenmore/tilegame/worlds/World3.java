@@ -15,7 +15,7 @@ public class World3 extends Worlds
     public World3(Handler handler, String path)
     {
         this.handler =handler;
-        entityManager=new EntityManager(handler,new Player(handler,100f,100f),
+        entityManager=new EntityManager(new Player(handler,100f,100f),
                 new Player2(handler,100f,100f));
         itemManager=new ItemManager(handler);
         entityManager.addEntity(new Ceasca(handler,700,10));

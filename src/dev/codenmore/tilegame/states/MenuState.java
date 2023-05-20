@@ -5,6 +5,8 @@ import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.ui.ClickListener;
 import dev.codenmore.tilegame.ui.UIImageButton;
 import dev.codenmore.tilegame.ui.UIManager;
+import dev.codenmore.tilegame.worlds.World;
+import dev.codenmore.tilegame.worlds.World2;
 
 import java.awt.*;
 
@@ -21,6 +23,7 @@ public class MenuState extends State
                     @Override
                     public void onClick() {
                         handler.getMouseManager().setUiManager(null);
+                        handler.getGame().gameState.setWorld(new World(handler, "res/worlds/world1.txt"));
                         State.setState(handler.getGame().gameState);
                     }
                 }));
@@ -28,25 +31,9 @@ public class MenuState extends State
                 (300, 250, 128, 64, Assets.btn_continue, new ClickListener() {
             @Override
             public void onClick() {
-//                handler.getMouseManager().setUiManager(null);
-//                //handler.getGame().getDatabase().restoreData(handler);
-//                int level=handler.getGame().getDatabase().getLevel();
-//                if(level==0||level==1)
-//                {
-//                    State.setState(handler.getGame().gameState);
-//                }
-//                if(level==2)
-//                {
-//                    State.setState(handler.getGame().gameState2);
-//                }
-//                if(level==3)
-//                {
-//                    State.setState(handler.getGame().gameState3);
-//                }
-
-
                 handler.getMouseManager().setUiManager(null);
-                State.setState(new GameState(handler));
+                handler.getGame().getDatabase().restoreData(handler);
+                State.setState(handler.getGame().gameState);
             }
         }));
     }

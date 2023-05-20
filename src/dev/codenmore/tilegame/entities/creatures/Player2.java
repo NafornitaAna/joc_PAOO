@@ -89,7 +89,7 @@ public class Player2 extends Creature
         }
         attackTimer=0;
 
-        for(Entity e: handler.getWorld().getEntityManager().getEntities())
+        for(Entity e: handler.getGame().gameState.getWorld().getEntityManager().getEntities())
         {
             if(e.equals(this))
                 continue;

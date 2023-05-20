@@ -11,7 +11,6 @@ import java.util.Iterator;
 
 public class EntityManager
 {
-    private Handler handler;
     private Player player;
     private Player2 player2;
     private ArrayList<Entity> entities;
@@ -23,9 +22,8 @@ public class EntityManager
             return 1;
         }
     };
-    public EntityManager(Handler handler,Player player,Player2 player2)
+    public EntityManager(Player player,Player2 player2)
     {
-        this.handler=handler;
         this.player=player;
         this.player2=player2;
         entities=new ArrayList<Entity>();
@@ -57,15 +55,6 @@ public class EntityManager
     public void addEntity(Entity e)
     {
         entities.add(e);
-    }
-
-    //getters setters
-    public Handler getHandler() {
-        return handler;
-    }
-
-    public void setHandler(Handler handler) {
-        this.handler = handler;
     }
 
     public ArrayList<Entity> getEntities() {

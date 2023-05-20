@@ -1,10 +1,12 @@
 package dev.codenmore.tilegame.states;
 import dev.codenmore.tilegame.Handler;
+import dev.codenmore.tilegame.worlds.Worlds;
 
 import java.awt.*;
 
 public abstract class State
 {
+    protected Worlds world;
     private static State currentState=null;
     public static void setState(State state)
     {
@@ -25,4 +27,12 @@ public abstract class State
     public abstract void render(Graphics g);
 
     public abstract void loadWorld();
+
+    public Worlds getWorld() {
+        return world;
+    }
+
+    public void setWorld(Worlds world) {
+        this.world = world;
+    }
 }

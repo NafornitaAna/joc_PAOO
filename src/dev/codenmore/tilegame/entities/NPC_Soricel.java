@@ -61,8 +61,8 @@ public class NPC_Soricel extends Creature
     @Override
     public void die() {
         active=false;
-        handler.getWorld().getItemManager().addItem(Item.xpItem.createNew(Math.round(x),Math.round(y)));
-        handler.getWorld().getItemManager().addItem(Item.xpItem.createNew(Math.round(x+10),Math.round(y+10)));
+        handler.getGame().gameState.getWorld().getItemManager().addItem(Item.xpItem.createNew(Math.round(x),Math.round(y)));
+        handler.getGame().gameState.getWorld().getItemManager().addItem(Item.xpItem.createNew(Math.round(x+10),Math.round(y+10)));
     }
 
     private BufferedImage getCurrentAnimationFrame()
