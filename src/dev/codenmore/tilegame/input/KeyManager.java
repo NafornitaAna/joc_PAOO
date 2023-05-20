@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class KeyManager implements KeyListener
 {
     private boolean[] keys,justPressed,cantPress;
-    public Boolean up,down,left,right,up2,down2,left2,right2;
+    public Boolean up,down,left,right,up2,down2,left2,right2,esc;
     public boolean attack1,attack2;
     public KeyManager()
     {
@@ -42,6 +42,7 @@ public class KeyManager implements KeyListener
         down2=keys[KeyEvent.VK_DOWN];
         left2=keys[KeyEvent.VK_LEFT];
         right2=keys[KeyEvent.VK_RIGHT];
+        esc = keys[KeyEvent.VK_ESCAPE];
     }
     @Override
     public void keyTyped(KeyEvent e)

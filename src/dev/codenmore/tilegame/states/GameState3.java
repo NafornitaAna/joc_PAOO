@@ -26,6 +26,7 @@ public class GameState3 extends State
     public void tick()
     {
         world.tick();
+
     }
 
     @Override

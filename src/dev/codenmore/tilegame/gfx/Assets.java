@@ -10,7 +10,7 @@ public class Assets
             ceasca,briosa1,briosa2,cartiJoc,pahar,lingura,tort,xp;
     public static BufferedImage[] pisicaDown,pisicaUp,pisicaLeft,pisicaRight,pisicaDown2,pisicaUp2,pisicaLeft2,pisicaRight2,
             soareceDown,soareceUp,soareceLeft,soareceRight;
-    public static BufferedImage[] btn_start;
+    public static BufferedImage[] btn_start,btn_continue;
     public static BufferedImage inventoryScreen;
     public static Font font28;
     public static void init()
@@ -33,8 +33,12 @@ public class Assets
         SpriteSheet sheetXp=new SpriteSheet(ImageLoader.loadImage("/textures/xp.png"));
 
         btn_start=new BufferedImage[2];
-        btn_start[0]=sheetBtn.crop(0,0,264,97);
-        btn_start[1]=sheetBtnH.crop(0,0,264,97);
+        btn_start[0]=sheetBtn.crop(792,1067,264,97);
+        btn_start[1]=sheetBtnH.crop(792,1067,264,97);
+
+        btn_continue=new BufferedImage[2];
+        btn_continue[0]=sheetBtn.crop(0,0,264,97);
+        btn_continue[1]=sheetBtnH.crop(0,0,264,97);
 
         xp=sheetXp.crop(0,0,190,191);
 

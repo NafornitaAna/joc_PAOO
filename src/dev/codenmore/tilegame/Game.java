@@ -5,9 +5,11 @@ import dev.codenmore.tilegame.gfx.GameCamera;
 import dev.codenmore.tilegame.input.KeyManager;
 import dev.codenmore.tilegame.input.MouseManager;
 import dev.codenmore.tilegame.states.*;
+import dev.codenmore.tilegame.utils.Database;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.sql.SQLException;
 
 public class Game implements Runnable
 {
@@ -22,6 +24,9 @@ public class Game implements Runnable
     //states
     public State gameState,gameState2,gameState3;
     public State menuState;
+
+    //db
+    Database database= null;
 
     //input
     private KeyManager keyManager;
@@ -52,6 +57,16 @@ public class Game implements Runnable
 
     private void init()
     {
+        try
+        {
+            database=new Database("database.db");
+            database.createNewTable();
+        }
+        catch (Exception e)
+        {
+            System.out.println("nu s-a putut initializa database");
+            return;
+        }
         display=new Display(title,width,height);
         display.getFrame().addKeyListener(keyManager);
         display.getFrame().addMouseListener(mouseManager);
@@ -73,6 +88,7 @@ public class Game implements Runnable
         keyManager.tick();
         if(State.getState()!=null)
             State.getState().tick();
+        verifEscapeKey();
     }
     private void rander()
     {
@@ -168,5 +184,20 @@ public class Game implements Runnable
         {
             throw new RuntimeException(e);
         }
+    }
+
+    public void verifEscapeKey()
+    {
+        if(handler.getKeyManager().esc){
+            State.setState(new MenuState(handler));
+        }
+    }
+
+    public Database getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(Database database) {
+        this.database = database;
     }
 }
