@@ -41,7 +41,7 @@ public class GameState extends State
             }
             else if (this.world instanceof World3)
             {
-                System.out.println("GATA");
+                State.setState(new FinishState(handler));
             }
 
             if(playerVech1!=0)
