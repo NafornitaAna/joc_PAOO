@@ -1,10 +1,7 @@
 package dev.codenmore.tilegame.utils;
 import dev.codenmore.tilegame.Handler;
-import dev.codenmore.tilegame.entities.creatures.Player;
-import dev.codenmore.tilegame.entities.creatures.Player2;
 import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.items.Item;
-import dev.codenmore.tilegame.states.GameState;
 import dev.codenmore.tilegame.states.State;
 import dev.codenmore.tilegame.worlds.World;
 import dev.codenmore.tilegame.worlds.World2;
@@ -77,26 +74,6 @@ public class Database
             System.out.println(e.getMessage());
         }
     }
-
-    public static void dropTable()
-    {
-        String url = "jdbc:sqlite:database.db";
-
-        // SQL statement for creating a new table
-        String sql = "DROP TABLE IF EXISTS 'catOClock' ";
-
-        try
-        {
-            Connection conn = DriverManager.getConnection(url);
-            Statement stmt = conn.createStatement();
-            stmt.execute(sql);
-        }
-        catch (SQLException e)
-        {
-            System.out.println(e.getMessage());
-        }
-    }
-
     public String selectAll()
     {
         String sql = "SELECT * FROM catOClock";
@@ -172,16 +149,6 @@ public class Database
             handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getInventoryItems2().setCount(scorPlayer2);
         }
 
-    }
-
-    public int getLevel()
-    {
-        if (this.selectAll() != null) {
-            String[] date = this.selectAll().split(" ");
-            int level = Integer.parseInt(date[0]);
-            return level;
-        }
-        return -1;
     }
 
 }

@@ -24,7 +24,7 @@ public class World3 extends Worlds
         entityManager.addEntity(new CartiDeJoc(handler,200,350));
         entityManager.addEntity(new Pahar(handler,500,400));
         entityManager.addEntity(new Tort(handler,500,300));
-        entityManager.addEntity(new Tort(handler,100,200));
+        entityManager.addEntity(new Tort(handler,300,100));
         entityManager.addEntity(new Tort(handler,30,350));
 
         entityManager.addEntity(new NPC_Soricel(handler,0f,100f));
