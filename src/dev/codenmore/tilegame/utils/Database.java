@@ -50,24 +50,34 @@ public class Database
             {
                 pstmt.setDouble(1, 0);
                 lvl=0;
+
+                pstmt.setDouble(2, 0);
+                pstmt.setDouble(3, 0);
             }
             else if(handler.getGame().gameState.getWorld() instanceof World)
             {
                 pstmt.setDouble(1, 1);
                 lvl=1;
+
+                pstmt.setDouble(2, 0);
+                pstmt.setDouble(3, 0);
             }
             else if(handler.getGame().gameState.getWorld() instanceof World2)
             {
                 pstmt.setDouble(1, 2);
                 lvl=2;
+
+                pstmt.setDouble(2, handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().getCount());
+                pstmt.setDouble(3, handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getCount2());
             }
             else if(handler.getGame().gameState.getWorld() instanceof World3)
             {
                 pstmt.setDouble(1, 3);
                 lvl=3;
+
+                pstmt.setDouble(2, handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().getCount());
+                pstmt.setDouble(3, handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getCount2());
             }
-            pstmt.setDouble(2, handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().getCount());
-            pstmt.setDouble(3, handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getCount2());
             pstmt.setString(4, "res/worlds/world" + lvl + ".txt");
             pstmt.executeUpdate();
         } catch (SQLException e) {
