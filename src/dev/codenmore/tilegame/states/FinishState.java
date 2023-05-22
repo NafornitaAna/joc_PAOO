@@ -1,5 +1,4 @@
 package dev.codenmore.tilegame.states;
-
 import dev.codenmore.tilegame.Handler;
 import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.ui.UIManager;
@@ -15,13 +14,6 @@ public class FinishState extends State{
         this.uiManager = new UIManager(handler);
         handler.getMouseManager().setUiManager(uiManager);
     }
-
-//    public void verifEscapeKey(){
-//        if(handler.getKeyManager().esc){
-//            handler.getGame().getDatabase().insert(handler);
-//            State.setState(new MenuState(handler));
-//        }
-//    }
 
     @Override
     public void tick() {

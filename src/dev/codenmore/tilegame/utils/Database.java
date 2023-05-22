@@ -133,6 +133,8 @@ public class Database
         }
         System.out.println(rez);
     }
+
+    //reluarea jocului din punctul salvat
     public void restoreData(Handler handler){
         if (this.selectAll() != null) {
             String[] date=this.selectAll().split(" ");

@@ -105,7 +105,6 @@ public class Player2 extends Creature
     {
         this.x=0f;
         this.y=0f;
-        System.out.println("ups");
     }
 
     private void getInput()
@@ -127,10 +126,6 @@ public class Player2 extends Creature
     {
         g.drawImage(getCurrentAnimationFrame(), Math.round(x-handler.getGameCamera().getxOffset())
                 ,Math.round(y-handler.getGameCamera().getyOffset()),width,height,null);
-//        g.setColor(Color.red);
-//        g.fillRect((int)(x+bounds.x-handler.getGameCamera().getxOffset()),
-//                   (int)(y+bounds.y-handler.getGameCamera().getyOffset()),
-//                bounds.width, bounds.height);
     }
 
     public void postRender(Graphics g)

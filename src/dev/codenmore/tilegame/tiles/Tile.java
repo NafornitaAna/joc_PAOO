@@ -1,5 +1,4 @@
 package dev.codenmore.tilegame.tiles;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 

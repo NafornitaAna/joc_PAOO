@@ -6,10 +6,7 @@ import dev.codenmore.tilegame.entities.creatures.Player;
 import dev.codenmore.tilegame.entities.creatures.Player2;
 import dev.codenmore.tilegame.entities.statics.*;
 import dev.codenmore.tilegame.items.ItemManager;
-import dev.codenmore.tilegame.tiles.Tile;
 import dev.codenmore.tilegame.utils.ObjectFactory;
-import dev.codenmore.tilegame.utils.Utils;
-import java.awt.*;
 
 public class World3 extends Worlds
 {
@@ -19,11 +16,11 @@ public class World3 extends Worlds
         entityManager=new EntityManager(new Player(handler,100f,100f),
                 new Player2(handler,100f,100f));
         itemManager=new ItemManager(handler);
-        //entityManager.addEntity(ObjectFactory.getObject("Ceasca",handler,700,10));
-        //entityManager.addEntity(ObjectFactory.getObject("Briosa",handler,10,250));
+        entityManager.addEntity(ObjectFactory.getObject("Ceasca",handler,700,10));
+        entityManager.addEntity(ObjectFactory.getObject("Briosa",handler,10,250));
         entityManager.addEntity(ObjectFactory.getObject("Briosa",handler,500,150));
-        //entityManager.addEntity(ObjectFactory.getObject("CartiDeJoc",handler,200,350));
-        //entityManager.addEntity(ObjectFactory.getObject("Pahar",handler,500,400));
+        entityManager.addEntity(ObjectFactory.getObject("CartiDeJoc",handler,200,350));
+        entityManager.addEntity(ObjectFactory.getObject("Pahar",handler,500,400));
         entityManager.addEntity(new Tort(handler,500,300));
         entityManager.addEntity(new Tort(handler,300,100));
         entityManager.addEntity(new Tort(handler,30,350));

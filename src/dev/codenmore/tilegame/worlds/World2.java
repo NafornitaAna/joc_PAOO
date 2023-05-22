@@ -4,12 +4,8 @@ import dev.codenmore.tilegame.entities.EntityManager;
 import dev.codenmore.tilegame.entities.NPC_Soricel;
 import dev.codenmore.tilegame.entities.creatures.Player;
 import dev.codenmore.tilegame.entities.creatures.Player2;
-import dev.codenmore.tilegame.entities.statics.*;
 import dev.codenmore.tilegame.items.ItemManager;
-import dev.codenmore.tilegame.tiles.Tile;
 import dev.codenmore.tilegame.utils.ObjectFactory;
-import dev.codenmore.tilegame.utils.Utils;
-import java.awt.*;
 
 public class World2 extends Worlds
 {
@@ -19,10 +15,10 @@ public class World2 extends Worlds
         entityManager=new EntityManager(new Player(handler,100f,100f),
                 new Player2(handler,100f,100f));
         itemManager=new ItemManager(handler);
-        //entityManager.addEntity(ObjectFactory.getObject("Ceasca",handler,650,400));
-        ///entityManager.addEntity(ObjectFactory.getObject("Ceasca",handler,350,200));
-        //entityManager.addEntity(ObjectFactory.getObject("Briosa",handler,100,300));
-        //entityManager.addEntity(ObjectFactory.getObject("CartiDeJoc",handler,400,10));
+        entityManager.addEntity(ObjectFactory.getObject("Ceasca",handler,650,400));
+        entityManager.addEntity(ObjectFactory.getObject("Ceasca",handler,350,200));
+        entityManager.addEntity(ObjectFactory.getObject("Briosa",handler,100,300));
+        entityManager.addEntity(ObjectFactory.getObject("CartiDeJoc",handler,400,10));
         entityManager.addEntity(ObjectFactory.getObject("Pahar",handler,20,400));
         entityManager.addEntity(ObjectFactory.getObject("Lingura",handler,300,400));
         entityManager.addEntity(new NPC_Soricel(handler,0f,100f));

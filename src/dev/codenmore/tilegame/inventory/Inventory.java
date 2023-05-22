@@ -1,5 +1,4 @@
 package dev.codenmore.tilegame.inventory;
-
 import dev.codenmore.tilegame.Handler;
 import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.gfx.Text;
@@ -12,8 +11,8 @@ public class Inventory
 {
     private Handler handler;
     private boolean active=false;
-    private Item inventoryItems = null; //new Item(Assets.xp,"xp",0);
-    private Item inventoryItems2 = null; //new Item(Assets.xp,"xp",0);
+    private Item inventoryItems = null;
+    private Item inventoryItems2 = null;
     private final int invX=64,invY=42,invWidth=637,invHeight=406;
     private int invListCenterX=invX+7,invListCenterY=invY+7,
                 invListCenterX2=invX+630,invListCenterY2=invY+7;
@@ -30,7 +29,6 @@ public class Inventory
     {
         if(!active)
             return;
-        //g.drawImage(Assets.inventoryScreen,invX,invY,invWidth,invHeight,null);
 
         if(inventoryItems != null)
         {

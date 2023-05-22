@@ -36,7 +36,7 @@ public class NPC_Soricel extends Creature
         animUp.tick();
         animLeft.tick();
         animRight.tick();
-        //movement
+        //miscare
         move();
         x += xMove;
         y += yMove;

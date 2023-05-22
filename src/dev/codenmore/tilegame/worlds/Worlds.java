@@ -2,13 +2,6 @@ package dev.codenmore.tilegame.worlds;
 
 import dev.codenmore.tilegame.Handler;
 import dev.codenmore.tilegame.entities.EntityManager;
-import dev.codenmore.tilegame.entities.NPC_Soricel;
-import dev.codenmore.tilegame.entities.creatures.Player;
-import dev.codenmore.tilegame.entities.creatures.Player2;
-import dev.codenmore.tilegame.entities.statics.Briosa1;
-import dev.codenmore.tilegame.entities.statics.CartiDeJoc;
-import dev.codenmore.tilegame.entities.statics.Ceasca;
-import dev.codenmore.tilegame.entities.statics.Pahar;
 import dev.codenmore.tilegame.items.ItemManager;
 import dev.codenmore.tilegame.tiles.Tile;
 import dev.codenmore.tilegame.utils.Utils;

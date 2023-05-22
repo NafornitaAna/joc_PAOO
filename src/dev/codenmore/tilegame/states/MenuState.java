@@ -18,6 +18,8 @@ public class MenuState extends State
         super(handler);
         uiManager=new UIManager(handler);
         handler.getMouseManager().setUiManager(uiManager);
+
+        //intru in joc nou
         uiManager.addObject(new UIImageButton
                 (315, 150, 150, 64, Assets.btn_start, new ClickListener(){
                     @Override
@@ -27,6 +29,8 @@ public class MenuState extends State
                         State.setState(handler.getGame().gameState);
                     }
                 }));
+
+        //reluare joc vechi
         uiManager.addObject(new UIImageButton
                 (300, 250, 128, 64, Assets.btn_continue, new ClickListener() {
             @Override

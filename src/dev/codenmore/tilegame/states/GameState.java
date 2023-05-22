@@ -1,15 +1,11 @@
 package dev.codenmore.tilegame.states;
 import dev.codenmore.tilegame.Handler;
-import dev.codenmore.tilegame.entities.creatures.Player;
-import dev.codenmore.tilegame.entities.creatures.Player2;
 import dev.codenmore.tilegame.entities.statics.BrakebleObject;
-import dev.codenmore.tilegame.entities.statics.Ceasca;
 import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.items.Item;
 import dev.codenmore.tilegame.worlds.World;
 import dev.codenmore.tilegame.worlds.World2;
 import dev.codenmore.tilegame.worlds.World3;
-import dev.codenmore.tilegame.worlds.Worlds;
 
 import java.awt.*;
 
@@ -59,15 +55,16 @@ public class GameState extends State
 
     public void verifEscapeKey()
     {
-        if(handler.getKeyManager().esc){
-            System.out.println("sal");
+        if(handler.getKeyManager().esc)
+        {
             handler.getGame().getDatabase().insert(handler);
             State.setState(new MenuState(handler));
             handler.getKeyManager().esc = false;
         }
     }
 
-    public boolean enitiesExists() {
+    public boolean enitiesExists()
+    {
         var entities = world.getEntityManager().getEntities();
         for(int i=0;i<entities.size();i++)
         {

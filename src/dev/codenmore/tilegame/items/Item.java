@@ -1,8 +1,6 @@
 package dev.codenmore.tilegame.items;
-
 import dev.codenmore.tilegame.Handler;
 import dev.codenmore.tilegame.gfx.Assets;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 

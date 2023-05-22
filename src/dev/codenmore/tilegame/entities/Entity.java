@@ -1,6 +1,4 @@
 package dev.codenmore.tilegame.entities;
-
-import dev.codenmore.tilegame.Game;
 import dev.codenmore.tilegame.Handler;
 import dev.codenmore.tilegame.entities.statics.BrakebleObject;
 

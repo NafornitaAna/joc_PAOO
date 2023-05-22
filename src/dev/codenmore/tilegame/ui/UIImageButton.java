@@ -1,5 +1,4 @@
 package dev.codenmore.tilegame.ui;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 

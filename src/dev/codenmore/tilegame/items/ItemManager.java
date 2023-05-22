@@ -1,7 +1,5 @@
 package dev.codenmore.tilegame.items;
-
 import dev.codenmore.tilegame.Handler;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;

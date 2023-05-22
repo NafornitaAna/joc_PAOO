@@ -1,10 +1,7 @@
 package dev.codenmore.tilegame;
-import dev.codenmore.tilegame.entities.creatures.Player;
-import dev.codenmore.tilegame.entities.creatures.Player2;
 import dev.codenmore.tilegame.gfx.GameCamera;
 import dev.codenmore.tilegame.input.KeyManager;
 import dev.codenmore.tilegame.input.MouseManager;
-import dev.codenmore.tilegame.worlds.Worlds;
 
 public class Handler
 {
