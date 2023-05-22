@@ -51,17 +51,22 @@ public class Database
                 pstmt.setDouble(1, 0);
                 lvl=0;
             }
-            if(handler.getGame().gameState.getWorld() instanceof World)
+            else if(State.getState()== handler.getGame().finishState)
+            {
+                pstmt.setDouble(1, 0);
+                lvl=0;
+            }
+            else if(handler.getGame().gameState.getWorld() instanceof World)
             {
                 pstmt.setDouble(1, 1);
                 lvl=1;
             }
-            if(handler.getGame().gameState.getWorld() instanceof World2)
+            else if(handler.getGame().gameState.getWorld() instanceof World2)
             {
                 pstmt.setDouble(1, 2);
                 lvl=2;
             }
-            if(handler.getGame().gameState.getWorld() instanceof World3)
+            else if(handler.getGame().gameState.getWorld() instanceof World3)
             {
                 pstmt.setDouble(1, 3);
                 lvl=3;

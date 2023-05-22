@@ -24,6 +24,7 @@ public class Game implements Runnable
     //states
     public State gameState;
     public State menuState;
+    public State finishState;
 
     //db
     Database database= null;
@@ -76,6 +77,7 @@ public class Game implements Runnable
         Assets.init();
         handler=new Handler(this);
         gameCamera=new GameCamera(handler,0f,0f);
+        finishState=new FinishState(handler);
         gameState=new GameState(handler);
         gameState.loadWorld();
         menuState=new MenuState(handler);
