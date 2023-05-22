@@ -26,6 +26,7 @@ public class FinishState extends State{
     @Override
     public void tick() {
         uiManager.tick();
+        verifEscapeKey();
     }
 
     @Override
@@ -41,8 +42,8 @@ public class FinishState extends State{
     {
         g.setColor(Color.magenta);
         g.setFont(Assets.font28);
-        int scorP1=handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems().getCount();
-        int scorP2=handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getInventoryItems2().getCount();
+        int scorP1=handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().getCount();
+        int scorP2=handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getCount2();
         if(scorP1>scorP2)
             g.drawString("Winner is Player1",x, y);
         else g.drawString("Winner is Player2",x, y);
@@ -63,8 +64,8 @@ public class FinishState extends State{
     public void drawScor(Graphics g,int x, int y){
         g.setColor(Color.pink);
         g.setFont(Assets.font28);
-        g.drawString("Score player 1: "+handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems().getCount(),x,y);
-        g.drawString("Score player 2: "+handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getInventoryItems2().getCount(),x+300,y);
+        g.drawString("Score player 1: "+handler.getGame().gameState.getWorld().getEntityManager().getPlayer().getInventory().getCount(),x,y);
+        g.drawString("Score player 2: "+handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getCount2(),x+300,y);
     }
 
     public UIManager getUiManager() {

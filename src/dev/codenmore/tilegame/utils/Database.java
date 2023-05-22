@@ -46,12 +46,7 @@ public class Database
         try
         {
             PreparedStatement pstmt = this.connection.prepareStatement(sql);
-            if(State.getState()== handler.getGame().menuState)
-            {
-                pstmt.setDouble(1, 0);
-                lvl=0;
-            }
-            else if(State.getState()== handler.getGame().finishState)
+            if(State.getState()== handler.getGame().finishState)
             {
                 pstmt.setDouble(1, 0);
                 lvl=0;
@@ -132,7 +127,7 @@ public class Database
         if (this.selectAll() != null) {
             String[] date=this.selectAll().split(" ");
             int level = Integer.parseInt(date[0]);
-            if(level==0||level==1)
+            if(level==0||level==1||level==4)
             {
                 handler.getGame().gameState.setWorld(new World(handler, "res/worlds/world1.txt"));
             }

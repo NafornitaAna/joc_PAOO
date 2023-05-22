@@ -88,7 +88,6 @@ public class Game implements Runnable
         keyManager.tick();
         if(State.getState()!=null)
             State.getState().tick();
-        verifEscapeKey();
     }
     private void rander()
     {
@@ -140,7 +139,7 @@ public class Game implements Runnable
 
             if(timer>=1000000000)
             {
-                System.out.println("ticks and frames: "+ticks);
+                //System.out.println("ticks and frames: "+ticks);
                 ticks=0;
                 timer=0L;
             }
@@ -183,14 +182,6 @@ public class Game implements Runnable
         catch (InterruptedException e)
         {
             throw new RuntimeException(e);
-        }
-    }
-
-    public void verifEscapeKey()
-    {
-        if(handler.getKeyManager().esc){
-            handler.getGame().getDatabase().insert(handler);
-            State.setState(new MenuState(handler));
         }
     }
 

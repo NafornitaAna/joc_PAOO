@@ -25,7 +25,7 @@ public class GameState extends State
     public void tick()
     {
         world.tick();
-
+        verifEscapeKey();
         if(!this.enitiesExists())
         {
             int playerVech1 = world.getEntityManager().getPlayer().getInventory().getCount();
@@ -54,6 +54,16 @@ public class GameState extends State
                 this.handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().setInventoryItems2(new Item(Assets.xp,"xp",0));
                 this.handler.getGame().gameState.getWorld().getEntityManager().getPlayer2().getInventory().getInventoryItems2().setCount(playerVech2);
             }
+        }
+    }
+
+    public void verifEscapeKey()
+    {
+        if(handler.getKeyManager().esc){
+            System.out.println("sal");
+            handler.getGame().getDatabase().insert(handler);
+            State.setState(new MenuState(handler));
+            handler.getKeyManager().esc = false;
         }
     }
 

@@ -35,4 +35,14 @@ public abstract class State
     public void setWorld(Worlds world) {
         this.world = world;
     }
+
+    public void verifEscapeKey()
+    {
+        if(handler.getKeyManager().esc){
+            System.out.println("sal");
+            handler.getGame().getDatabase().insert(handler);
+            State.setState(new MenuState(handler));
+            handler.getKeyManager().esc = false;
+        }
+    }
 }
